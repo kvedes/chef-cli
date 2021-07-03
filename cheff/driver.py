@@ -1,5 +1,6 @@
 import os
 from typing import List
+from random import randint
 import typer
 from cheff.recipe import Library, Recipe
 from cheff.ingredients import Ingredient
@@ -17,7 +18,7 @@ LIBRARY = os.environ["CHEFF_LIBRARY_PATH"]
 @app.command()
 def recipes():
     library = LibraryFromJson().read_library(LIBRARY)
-    typer.echo(f"------Content of library {LIBRARY}------")
+    typer.echo(f"------ Content of library {LIBRARY} ------")
     for recipe in library.content:
         typer.echo(recipe.name)
 
@@ -27,3 +28,9 @@ def get(name: str):
     for recipe in library.content:
         if recipe.name == name:
             typer.echo(recipe.to_string())
+
+@app.command()
+def random():
+    library = LibraryFromJson().read_library(LIBRARY)
+    idx = randint(0, len(library) - 1)
+    typer.echo(library.content[idx].to_string())

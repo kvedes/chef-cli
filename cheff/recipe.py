@@ -27,3 +27,6 @@ class Recipe:
 class Library:
     name: str
     content: List[Recipe]
+
+    def __len__(self):
+        return len(self.content)

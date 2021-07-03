@@ -57,10 +57,17 @@ class TableSpoon(Measure):
     def __init__(self, size: float):
        super().__init__(None, "volume", size, "tbsp")
 
+class Count(Measure):
+    
+    def __init__(self, size: float):
+       super().__init__(None, "count", size, "")
+
+
 measure_map = {
     "kilogram": Kilograms,
     "liter": Liter,
-    "tablespoon": TableSpoon
+    "tablespoon": TableSpoon,
+    "count": Count
 }
 
 @dataclass
