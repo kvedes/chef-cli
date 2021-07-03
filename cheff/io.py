@@ -67,5 +67,4 @@ class LibraryAppendWriter:
         library = LibraryFromJson().read_library(self.file_path)
 
         library['content'].append(recipe)
-
         DataclassToJson.to_json(library, self.file_path)
