@@ -34,3 +34,8 @@ def random():
     library = LibraryFromJson().read_library(LIBRARY)
     idx = randint(0, len(library) - 1)
     typer.echo(library.content[idx].to_string())
+
+@app.command()
+def publish(name: str):
+    '''Publist to ourgroceries. Get password'''
+    pass
